@@ -81,3 +81,9 @@ After training, start the interactive app with:
 Upload a CSV containing 187 ECG signal values per row. The supplied test CSV can be used for a demonstration. The app plots a selected ECG signal, predicts its class, shows probabilities, and displays the saved model comparison.
 
 After adding this feature, rerun the training command once. It saves the scaler and classical ML models needed by the app.
+
+### App preview
+
+The dashboard lets a user select an ECG row, inspect its 187-point waveform, and view the model's predicted heartbeat class and probability distribution.
+
+![Streamlit ECG classification dashboard](assets/streamlit-dashboard.png)
