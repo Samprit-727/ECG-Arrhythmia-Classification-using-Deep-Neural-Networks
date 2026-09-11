@@ -1,0 +1,6 @@
+.venv/
+data/
+dataset hb/
+outputs/
+__pycache__/
+*.keras
