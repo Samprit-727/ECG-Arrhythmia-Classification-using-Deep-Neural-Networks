@@ -9,6 +9,7 @@ from __future__ import annotations
 import argparse
 from pathlib import Path
 
+import joblib
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
@@ -137,6 +138,7 @@ def main() -> None:
     x_train = scaler.fit_transform(x_train)
     x_valid = scaler.transform(x_valid)
     x_test = scaler.transform(x_test)
+    joblib.dump(scaler, args.output / "scaler.joblib")
 
     results = []
     classical_models = {
@@ -148,6 +150,7 @@ def main() -> None:
         print(f"Training {name}...")
         model.fit(x_train, y_train)
         results.append(save_evaluation(name, y_test, model.predict(x_test), args.output))
+        joblib.dump(model, args.output / f"{name}_model.joblib")
 
     callback = EarlyStopping(monitor="val_loss", patience=5, restore_best_weights=True)
     ann = build_ann(x_train.shape[1])

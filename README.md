@@ -70,3 +70,14 @@ The `outputs/` folder will contain:
 * one classification report and normalized confusion matrix per model
 * `ann\_model.keras` and `cnn\_model.keras`
 
+## Streamlit demo
+
+After training, start the interactive app with:
+
+```powershell
+.\.venv\Scripts\python.exe -m streamlit run app.py
+```
+
+Upload a CSV containing 187 ECG signal values per row. The supplied test CSV can be used for a demonstration. The app plots a selected ECG signal, predicts its class, shows probabilities, and displays the saved model comparison.
+
+After adding this feature, rerun the training command once. It saves the scaler and classical ML models needed by the app.
